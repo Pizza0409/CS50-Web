@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Page
+{% endblock %}
+
+{% block body %}
+    <h1>Edit the Current Entry</h1>
+    <p>Write down the entry about new entry content with Markdown</p>
+    <div>
+        <form action="{% url 'edit_page' title=title %}" method="post">
+            {% csrf_token %}
+            <textarea name="content" autofocus>{{ pre_content }}</textarea>
+            <br>
+            <input type="submit" value="Save">
+        </form>
+    </div>
+{% endblock %}
